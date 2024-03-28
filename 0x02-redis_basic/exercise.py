@@ -6,9 +6,11 @@ import sys
 from functools import wraps
 from typing import Union, Optional, Callable
 from uuid import uuid4
+
 import redis
 
 UnionOfTypes = Union[str, bytes, int, float]
+
 
 def count_calls(method: Callable) -> Callable:
     """
@@ -33,6 +35,7 @@ def count_calls(method: Callable) -> Callable:
 
     return wrapper
 
+
 def call_history(method: Callable) -> Callable:
     """
     add its input parameters to one list
@@ -53,6 +56,7 @@ def call_history(method: Callable) -> Callable:
         return res
 
     return wrapper
+
 
 class Cache:
     """
